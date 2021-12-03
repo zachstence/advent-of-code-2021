@@ -1,5 +1,9 @@
 import input from "./3.json";
 
+/*
+ * Part 1
+ */
+
 const getPower = () => {
     let gamma = "";
     let epsilon = "";
@@ -31,58 +35,62 @@ const getPower = () => {
     return gammaNum * epsilonNum
 };
 
-// console.log(`Power Consumption: ${getPower()}`);    
+console.log(`Power Consumption: ${getPower()}`);    
 
 /*
  * Part 2
  */
 
-let oxygen = [...input];
-let co2 = [...input];
-
-for (let i = 0; i < input[0].length; i++) {
-    let zeroes = [];
-    let ones = [];
+const getLifeSupport = () => {
+    let oxygen = [...input];
+    let co2 = [...input];
     
-    if (oxygen.length === 1) break; 
-
-    for (const binary of oxygen) {
-        if (binary.charAt(i) === "0") {
-            zeroes.push(binary);
+    for (let i = 0; i < input[0].length; i++) {
+        let zeroes = [];
+        let ones = [];
+        
+        if (oxygen.length === 1) break; 
+    
+        for (const binary of oxygen) {
+            if (binary.charAt(i) === "0") {
+                zeroes.push(binary);
+            } else {
+                ones.push(binary);
+            }
+        }
+    
+        if (zeroes.length > ones.length) {
+            oxygen = [...zeroes];
         } else {
-            ones.push(binary);
+            oxygen = [...ones];
         }
     }
-
-    if (zeroes.length > ones.length) {
-        oxygen = [...zeroes];
-    } else {
-        oxygen = [...ones];
-    }
-}
-
-for (let i = 0; i < input[0].length; i++) {
-    let zeroes = [];
-    let ones = [];
     
-    if (co2.length === 1) break;
-
-    for (const binary of co2) {
-        if (binary.charAt(i) === "0") {
-            zeroes.push(binary);
+    for (let i = 0; i < input[0].length; i++) {
+        let zeroes = [];
+        let ones = [];
+        
+        if (co2.length === 1) break;
+    
+        for (const binary of co2) {
+            if (binary.charAt(i) === "0") {
+                zeroes.push(binary);
+            } else {
+                ones.push(binary);
+            }
+        }
+    
+        if (zeroes.length > ones.length) {
+            co2 = [...ones];
         } else {
-            ones.push(binary);
+            co2 = [...zeroes];
         }
     }
+    
+    const oxygenNum = parseInt(oxygen[0], 2);
+    const co2Num = parseInt(co2[0], 2);
 
-    if (zeroes.length > ones.length) {
-        co2 = [...ones];
-    } else {
-        co2 = [...zeroes];
-    }
+    return oxygenNum * co2Num;
 }
 
-const oxygenNum = parseInt(oxygen[0], 2);
-const co2Num = parseInt(co2[0], 2);
-
-console.log(`Life Support: ${oxygenNum * co2Num}`);
+console.log(`Life Support: ${getLifeSupport()}`);
