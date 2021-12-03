@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "1": "tsc 1.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/1.js",
+    "2": "tsc 2.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/2.js",
     "3": "tsc 3.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/3.js"
   },
   "repository": {
