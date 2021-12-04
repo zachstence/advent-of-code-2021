@@ -1,4 +1,5 @@
-import input from "./2.json";
+// import input from "./test.json";
+import input from "./input.json";
 
 const isPart2: boolean = true;
 

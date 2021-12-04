@@ -1,4 +1,5 @@
-import input from "./3.json";
+// import input from "./test.json";
+import input from "./input.json";
 
 /*
  * Part 1

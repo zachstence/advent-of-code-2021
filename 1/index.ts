@@ -1,4 +1,5 @@
-import input from "./1.json";
+// import input from "./test.json";
+import input from "./input.json";
 
 const sum = (start: number, window: number): number => input.slice(start, start + window).reduce((prev, curr) => curr += prev);
 
@@ -15,4 +16,5 @@ const countIncreases = (window: number): number => {
     return count;
 };
 
+console.log(countIncreases(1));
 console.log(countIncreases(3));

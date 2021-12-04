@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "1": "tsc 1.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/1.js",
-    "2": "tsc 2.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/2.js",
-    "3": "tsc 3.ts --outDir ./build --resolveJsonModule --esModuleInterop && node ./build/3.js"
+    "1": "tsc 1/index.ts --outDir build/1 --resolveJsonModule --esModuleInterop && node build/1/index.js",
+    "2": "tsc 2/index.ts --outDir build/2 --resolveJsonModule --esModuleInterop && node build/2/index.js",
+    "3": "tsc 3/index.ts --outDir build/3 --resolveJsonModule --esModuleInterop && node build/3/index.js"
   },
   "repository": {
     "type": "git",
