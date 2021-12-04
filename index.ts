@@ -1,11 +1,13 @@
 import * as q1 from "./1";
 import * as q2 from "./2";
 import * as q3 from "./3";
+import * as q4 from "./4";
 
 const answers: string[][] = [
     [q1.p1().toString(), q1.p2().toString()],
     [q2.p1().toString(), q2.p2().toString()],
     [q3.p1().toString(), q3.p2().toString()],
+    [q4.p1().toString(), q4.p2().toString()],
 ];
 
 const maxWidth = answers.flat().reduce((a, b) => a.length > b.length ? a : b).length;
