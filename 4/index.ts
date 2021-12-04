@@ -4,15 +4,14 @@ const getBoards = (input: string) => {
     const boards: number[][][] = [];
 
     const lines = input.split("\n").slice(2).filter(s => s.length);
+    console.log(lines);
 
-    let line = 0;
-    let boardNum = 0;
-    while (line < 5) {
-        const boardLines = lines.slice(boardNum * 5, (boardNum+1)*5).map(line => line.split(" ").filter(s => s.length).map(s => parseInt(s)));
-        if (!boardLines.length) break;
-        boards.push(boardLines);
-        line++;
-        boardNum++;
+    const numBoards = lines.length / 5;
+
+    for (let i = 0; i < numBoards; i++) {
+        const boardLines = lines.slice(i * 5, (i + 1) * 5);
+        const board = boardLines.map(line => line.split(" ").filter(x => x.length)).map(l => l.map(x => parseInt(x)));
+        boards.push(board);
     }
 
     return boards;
@@ -52,12 +51,15 @@ const sumUnmarked = (board: number[][], tracker: boolean[][]): number => {
     return sum;
 };
 
-export const p1 = () => {
+
+export const q = (isPartTwo: boolean) => {
     const input = readFileSync("4/input.txt").toString();
 
     const vals = input.split("\n")[0].split(",").map(s => parseInt(s));
 
     const boards = getBoards(input);
+    
+    const winningBoards = Array.from({length: boards.length}, () => false);
 
     const trackers = getTrackers(boards.length);
 
@@ -76,17 +78,21 @@ export const p1 = () => {
             }
 
             const winning = check(board, tracker);
-            if (winning.length) {
-                console.log(winning);
-                console.log(board);
-                console.log(tracker);
-                const s = sumUnmarked(board, tracker);
-                console.log(s);
+            if (winning.length) {                
+                if (isPartTwo) {
+                    winningBoards[b] = true;
 
-                return s * val;
+                    if (winningBoards.every(w => w === true)) {
+                        const s = sumUnmarked(board, tracker);
+                        return s * val;
+                        }            
+                } else {
+                    const s = sumUnmarked(board, tracker);
+                    return s * val;
+                }
             }
-
         }
+
 
 
     }
@@ -95,4 +101,5 @@ export const p1 = () => {
     return 0;
 }
 
-export const p2 = () => 0;
+export const p1 = () => q(false);
+export const p2 = () => q(true);
