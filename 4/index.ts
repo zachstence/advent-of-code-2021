@@ -4,7 +4,6 @@ const getBoards = (input: string) => {
     const boards: number[][][] = [];
 
     const lines = input.split("\n").slice(2).filter(s => s.length);
-    console.log(lines);
 
     const numBoards = lines.length / 5;
 
@@ -22,8 +21,6 @@ const getTrackers = (x: number): boolean[][][] => {
 }
 
 const transpose = <T>(arr: T[][]): T[][] => arr[0].map((_, colIndex) => arr.map(row => row[colIndex]));
-
-const sum = (arr: number[]): number => arr.reduce((a, b) => a + b);
 
 const check = (board: number[][], tracker: boolean[][]): number[] => {
     // Check rows
@@ -103,3 +100,6 @@ export const q = (isPartTwo: boolean) => {
 
 export const p1 = () => q(false);
 export const p2 = () => q(true);
+
+console.log(q(false));
+console.log(q(true));
