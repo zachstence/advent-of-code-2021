@@ -1,9 +1,6 @@
-// import input from "./test.json";
-import input from "./input.json";
+import { readInput } from "../readLines";
 
-/*
- * Part 1
- */
+const input = readInput("3");
 
 const getPower = () => {
     let gamma = "";
@@ -35,10 +32,6 @@ const getPower = () => {
     
     return gammaNum * epsilonNum
 };
-
-/*
- * Part 2
- */
 
 const getLifeSupport = () => {
     let oxygen = [...input];

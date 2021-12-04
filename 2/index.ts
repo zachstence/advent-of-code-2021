@@ -1,7 +1,6 @@
-// import input from "./test.json";
-import input from "./input.json";
+import { readInput } from "../readLines";
 
-const isPart2: boolean = true;
+const input = readInput("2");
 
 type Direction = "forward" | "down" | "up";
 interface Position {

@@ -1,5 +1,6 @@
-// import input from "./test.json";
-import input from "./input.json";
+import { readInput } from "../readLines";
+
+const input = readInput("1").map(s => parseInt(s));
 
 const sum = (start: number, window: number): number => input.slice(start, start + window).reduce((prev, curr) => curr += prev);
 

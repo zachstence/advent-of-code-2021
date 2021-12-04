@@ -1,9 +1,11 @@
-import { readFileSync } from "fs";
+import { readInput } from "../readLines";
 
-const getBoards = (input: string) => {
+const input = readInput("4");
+
+const getBoards = (input: string[]) => {
     const boards: number[][][] = [];
 
-    const lines = input.split("\n").slice(2).filter(s => s.length);
+    const lines = input.slice(2).filter(s => s.length);
 
     const numBoards = lines.length / 5;
 
@@ -50,9 +52,7 @@ const sumUnmarked = (board: number[][], tracker: boolean[][]): number => {
 
 
 export const q = (isPartTwo: boolean) => {
-    const input = readFileSync("4/input.txt").toString();
-
-    const vals = input.split("\n")[0].split(",").map(s => parseInt(s));
+    const vals = input[0].split(",").map(s => parseInt(s));
 
     const boards = getBoards(input);
     
@@ -100,6 +100,3 @@ export const q = (isPartTwo: boolean) => {
 
 export const p1 = () => q(false);
 export const p2 = () => q(true);
-
-console.log(q(false));
-console.log(q(true));
