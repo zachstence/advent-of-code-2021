@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "1": "tsc 1/index.ts --outDir build/1 --resolveJsonModule --esModuleInterop && node build/1/index.js",
-    "2": "tsc 2/index.ts --outDir build/2 --resolveJsonModule --esModuleInterop && node build/2/index.js",
-    "3": "tsc 3/index.ts --outDir build/3 --resolveJsonModule --esModuleInterop && node build/3/index.js"
+    "all": "tsc && node build/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +19,7 @@
   },
   "homepage": "https://github.com/zachstence/advent-of-code-2021#readme",
   "devDependencies": {
+    "@types/node": "^16.11.11",
     "typescript": "^4.5.2"
   }
 }

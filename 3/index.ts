@@ -36,8 +36,6 @@ const getPower = () => {
     return gammaNum * epsilonNum
 };
 
-console.log(`Power Consumption: ${getPower()}`);    
-
 /*
  * Part 2
  */
@@ -94,4 +92,5 @@ const getLifeSupport = () => {
     return oxygenNum * co2Num;
 }
 
-console.log(`Life Support: ${getLifeSupport()}`);
+export const p1 = () => getPower();
+export const p2 = () => getLifeSupport();

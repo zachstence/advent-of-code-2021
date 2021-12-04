@@ -16,5 +16,5 @@ const countIncreases = (window: number): number => {
     return count;
 };
 
-console.log(countIncreases(1));
-console.log(countIncreases(3));
+export const p1 = () => countIncreases(1);
+export const p2 = () => countIncreases(3);
